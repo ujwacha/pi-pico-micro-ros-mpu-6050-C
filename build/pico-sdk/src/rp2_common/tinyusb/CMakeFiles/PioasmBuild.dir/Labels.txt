@@ -1,0 +1,13 @@
+# Target labels
+ PioasmBuild
+# Source files and their labels
+/home/light/micro_ros_raspberrypi_pico_sdk/build/pico-sdk/src/rp2_common/tinyusb/CMakeFiles/PioasmBuild
+/home/light/micro_ros_raspberrypi_pico_sdk/build/pico-sdk/src/rp2_common/tinyusb/CMakeFiles/PioasmBuild.rule
+/home/light/micro_ros_raspberrypi_pico_sdk/build/pico-sdk/src/rp2_common/tinyusb/CMakeFiles/PioasmBuild-complete.rule
+/home/light/micro_ros_raspberrypi_pico_sdk/build/pico-sdk/src/rp2_common/tinyusb/pioasm/src/PioasmBuild-stamp/PioasmBuild-build.rule
+/home/light/micro_ros_raspberrypi_pico_sdk/build/pico-sdk/src/rp2_common/tinyusb/pioasm/src/PioasmBuild-stamp/PioasmBuild-configure.rule
+/home/light/micro_ros_raspberrypi_pico_sdk/build/pico-sdk/src/rp2_common/tinyusb/pioasm/src/PioasmBuild-stamp/PioasmBuild-download.rule
+/home/light/micro_ros_raspberrypi_pico_sdk/build/pico-sdk/src/rp2_common/tinyusb/pioasm/src/PioasmBuild-stamp/PioasmBuild-install.rule
+/home/light/micro_ros_raspberrypi_pico_sdk/build/pico-sdk/src/rp2_common/tinyusb/pioasm/src/PioasmBuild-stamp/PioasmBuild-mkdir.rule
+/home/light/micro_ros_raspberrypi_pico_sdk/build/pico-sdk/src/rp2_common/tinyusb/pioasm/src/PioasmBuild-stamp/PioasmBuild-patch.rule
+/home/light/micro_ros_raspberrypi_pico_sdk/build/pico-sdk/src/rp2_common/tinyusb/pioasm/src/PioasmBuild-stamp/PioasmBuild-update.rule

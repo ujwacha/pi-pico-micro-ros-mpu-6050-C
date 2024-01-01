@@ -1,0 +1,264 @@
+#include <stdio.h>
+
+#include <rcl/rcl.h>
+#include <rcl/error_handling.h>
+#include <rclc/rclc.h>
+#include <rclc/executor.h>
+#include <std_msgs/msg/int32.h>
+//#include <std_msgs/msg/string.h>
+#include <rmw_microros/rmw_microros.h>
+
+
+#include "hardware/gpio.h"
+#include "pico/platform.h"
+#include "pico/stdlib.h"
+#include "pico/time.h"
+#include "pico_uart_transports.h"
+#include "rcl/allocator.h"
+#include "rcl/publisher.h"
+#include "rcl/subscription.h"
+#include "rcl/types.h"
+#include "rclc/executor_handle.h"
+#include "rclc/init.h"
+#include "rclc/node.h"
+#include "rclc/publisher.h"
+#include "rclc/subscription.h"
+#include "rclc/types.h"
+#include "rmw_microros/ping.h"
+#include "rosidl_runtime_c/message_type_support_struct.h"
+#include "std_msgs/msg/detail/int32__struct.h"
+#include "std_msgs/msg/detail/string__functions.h"
+#include "std_msgs/msg/detail/string__struct.h"
+#include "lib.c"
+
+
+#define PUBMSG ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Int32)
+#define SUBMSG ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Int32)
+
+typedef struct {
+  rcl_publisher_t publisher;
+  rcl_subscription_t subscriber;
+  rcl_node_t node;
+  rcl_timer_t timer;
+  rcl_allocator_t allocator;
+  rclc_support_t supprot;
+  rclc_executor_t executor;
+} Node;
+
+
+
+const uint LED_PIN = 25;
+
+int current_led_value = 1;
+
+rcl_publisher_t publisher; 
+rcl_subscription_t subescriber; 
+
+
+
+
+
+Node current_node;
+std_msgs__msg__Int32 msg;
+std_msgs__msg__Int32 from_sub_msg;
+
+
+void flip_led() {
+  if (current_led_value) {
+    current_led_value = 0;
+  } else {
+    current_led_value = 1;
+  }
+}
+
+void timer_callback(rcl_timer_t *timer, int64_t last_call_time)
+{
+
+  rcl_ret_t ret = rcl_publish(&current_node.publisher, &msg, NULL);
+}
+
+
+void subescription_callback(const void * mess) {
+
+  const std_msgs__msg__Int32 * message = (const std_msgs__msg__Int32 *) mess;
+
+   flip_led();
+
+   gpio_put(LED_PIN, current_led_value);
+  
+  msg = *message;
+
+}
+
+
+
+/* Node get_node( */
+/* 	      Node* node_class, */
+/* 	      char*nodename, */
+/* 	      char* namespace, */
+
+/* 	      char* publisher_name, */
+/* 	      const rosidl_message_type_support_t* publisher_message_type, */
+	      
+/* 	      char* subscriber_name, */
+/* 	      const rosidl_message_type_support_t* subscriber_message_type, */
+
+
+/* 	      int timeout_ms, */
+/* 	      uint8_t attempts */
+/* ) */
+/* { */
+
+
+/*   rcl_ret_t ret; */
+  
+
+/*   // do some stuff so that we can talk to the serial */
+/*   rmw_uros_set_custom_transport( */
+/* 				true, */
+/* 				NULL, */
+/* 				pico_serial_transport_open, */
+/* 				pico_serial_transport_close, */
+/* 				pico_serial_transport_write, */
+/* 				pico_serial_transport_read */
+/* 				); */
+  
+
+
+  
+/*   node_class->allocator = rcl_get_default_allocator(); */
+
+/*   // wait for some time to get access from the pi */
+
+/*   ret = rmw_uros_ping_agent(timeout_ms, attempts); */
+
+/*   // check for error */
+/*   // wait for 2 minutes and it it fails panic */
+/*   if (ret != RCL_RET_OK) { */
+/*     panic("Couldn't fine ROS computer connected to me. ERROR: %i", ret); */
+/*   } */
+
+/*   // init support and allocator */
+
+/*   rclc_support_init(&node_class->supprot, */
+/* 		    0, */
+/* 		    NULL, */
+/* 		    &node_class->allocator); */
+  
+
+/*   rclc_node_init_default(&node_class->node, */
+/* 			 nodename, */
+/* 			 namespace, */
+/* 			 &node_class->supprot); */
+
+
+
+/*   // error handling publisher */
+/*   if (publisher_name != NULL) { */
+/*     ret = rclc_publisher_init_default(&node_class->publisher, */
+/* 				      &node_class->node, */
+/* 				      publisher_message_type, */
+/* 				      publisher_name); */
+
+/*     if (ret != RCL_RET_OK) { */
+
+/*       ret = rcl_publisher_fini(&node_class->publisher, */
+/* 			       &node_class->node); */
+/*       panic("Couldn't make publisher"); */
+/*     } */
+/*   } */
+
+
+/*   //error handling subscriber */
+/*   if (subscriber_name != NULL) { */
+
+/*     ret = rclc_subscription_init_default(&node_class->subscriber, */
+/* 					 &node_class->node, */
+/* 					 subscriber_message_type, */
+/* 					 subscriber_name); */
+
+
+/*     if (ret != RCL_RET_OK) { */
+/*       // get rid of both publisher and subescriber */
+      
+/*       ret = rcl_publisher_fini(&node_class->publisher, */
+/* 			       &node_class->node); */
+/*       ret = rcl_subscription_fini(&node_class->subscriber, &node_class->node); */
+/*       panic("Failed Making subscriber"); */
+
+/*     } */
+/*   } */
+/* } */
+
+
+
+int main() {
+
+  rcl_ret_t ret;
+
+  gpio_init(LED_PIN);
+  gpio_set_dir(LED_PIN, GPIO_OUT);
+
+  
+  
+
+  // get the node without the boilerplate bullshit
+
+  get_node(&current_node,
+	   "node",
+	   "pico",
+	   
+	   
+	   "datacome",
+	   PUBMSG,
+
+	   
+	   
+	   "givdata",
+	   SUBMSG,
+	   
+	   1000,
+	   120);
+  
+
+  // initiate the timer
+
+  rclc_timer_init_default(&current_node.timer,
+			  &current_node.supprot,
+			  RCL_MS_TO_NS(500),
+			  timer_callback);
+
+
+  // initiate the executor
+  rclc_executor_init(&current_node.executor,
+		     &current_node.supprot.context,
+		     2,
+		     &current_node.allocator);
+
+  // add timer in the executor to publish stuff
+  rclc_executor_add_timer(&current_node.executor,
+			  &current_node.timer);
+
+  // add the subescriber in the executor
+
+ 
+  rclc_executor_add_subscription(&current_node.executor,
+				 &current_node.subscriber,
+				 &from_sub_msg,
+				 subescription_callback,
+				 ON_NEW_DATA);
+  
+
+
+  
+  gpio_put(LED_PIN, 1);
+
+
+  msg.data = 1;
+
+  while (true) {
+      rclc_executor_spin_some(&current_node.executor, RCL_MS_TO_NS(100));
+    }
+
+  return 0;
+}

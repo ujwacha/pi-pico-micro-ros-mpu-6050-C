@@ -1,0 +1,37 @@
+(undo-tree-save-format-version . 1)
+"9bd1ee033fb22ad13154e5426fe7279fae55fabd"
+[nil nil nil nil (26002 61685 108781 205000) 0 nil]
+([nil nil ((#("#" 0 1 (fontified t)) . -1) (undo-tree-id0 . -1) (undo-tree-id1 . -1) (#("i" 0 1 (fontified t face font-lock-preprocessor-face)) . -2) (undo-tree-id2 . -1) (undo-tree-id3 . -1) (#("n" 0 1 (fontified t face font-lock-preprocessor-face)) . -3) (undo-tree-id4 . -1) (undo-tree-id5 . -1) (#("c" 0 1 (fontified t face font-lock-preprocessor-face)) . -4) (undo-tree-id6 . -1) (undo-tree-id7 . -1) (#("l" 0 1 (fontified t face font-lock-preprocessor-face)) . -5) (undo-tree-id8 . -1) (undo-tree-id9 . -1) (#("u" 0 1 (fontified t face font-lock-preprocessor-face)) . -6) (undo-tree-id10 . -1) (undo-tree-id11 . -1) (#("d" 0 1 (fontified t face font-lock-preprocessor-face)) . -7) (undo-tree-id12 . -1) (undo-tree-id13 . -1) 8 (2 . 8) (1 . 2) (#("$" 0 1 (fontified t)) . -1) (undo-tree-id14 . -1) 2 (1 . 2) (#("i" 0 1 (fontified t)) . -1) (undo-tree-id15 . -1) (#("n" 0 1 (fontified t)) . -2) (undo-tree-id16 . -1) (#("c" 0 1 (fontified t)) . -3) (undo-tree-id17 . -1) 4 (1 . 4) (t . -1)) nil (26002 61685 108766 738000) 0 nil])
+([nil nil ((nil rear-nonsticky nil 4336 . 4337) (nil fontified nil 1700 . 4337) (nil fontified nil 1699 . 1700) (nil fontified nil 365 . 1699) (nil fontified nil 364 . 365) (nil fontified nil 1 . 364) (1 . 4337) (t 26002 61685 144539 160000)) nil (26002 61715 10564 982000) 0 nil])
+([nil nil ((#("/* Example code to talk to a MPU6050 MEMS accelerometer and gyroscope
+
+   This is taking to simple approach of simply reading registers. It's perfectly
+   possible to link up an interrupt line and set things up to read from the
+   inbuilt FIFO to make it more useful.
+
+   NOTE: Ensure the device is capable of being driven at 3.3v NOT 5v. The Pico
+   GPIO (and therefor I2C) cannot be used at 5v.
+
+   You will need to use a level shifter on the I2C lines if you want to run the
+   board at 5v.
+
+   Connections on Raspberry Pi Pico board, other boards may vary.
+
+   GPIO PICO_DEFAULT_I2C_SDA_PIN (On Pico this is GP4 (pin 6)) -> SDA on MPU6050 board
+   GPIO PICO_DEFAULT_I2C_SCL_PIN (On Pico this is GP5 (pin 7)) -> SCL on MPU6050 board
+   3.3v (pin 36) -> VCC on MPU6050 board
+   GND (pin 38)  -> GND on MPU6050 board
+*/
+
+" 0 1 (fontified t face font-lock-comment-delimiter-face c-is-sws t) 1 3 (fontified t face font-lock-comment-delimiter-face c-in-sws t) 3 139 (fontified t face font-lock-comment-face c-in-sws t) 139 140 (fontified t face font-lock-comment-face c-in-sws t) 140 276 (fontified t face font-lock-comment-face c-in-sws t) 276 348 (fontified t face font-lock-comment-face c-in-sws t) 348 818 (fontified t c-in-sws t face font-lock-comment-face) 818 819 (fontified t c-in-sws t face font-lock-comment-delimiter-face) 819 820 (fontified t face font-lock-comment-delimiter-face c-in-sws t) 820 821 (fontified t c-in-sws t) 821 822 (fontified t c-in-sws t)) . 225) (undo-tree-id22 . -821) (undo-tree-id23 . -821) (undo-tree-id24 . -821) (undo-tree-id25 . -821)) nil (26002 61715 10558 466000) 0 nil])
+([nil nil ((#("/**
+ * Copyright (c) 2020 Raspberry Pi (Trading) Ltd.
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+" 0 1 (fontified t face font-lock-doc-face c-in-sws t c-is-sws t) 1 3 (fontified t face font-lock-doc-face c-in-sws t) 3 98 (fontified t face font-lock-doc-face c-in-sws t) 98 100 (fontified t face font-lock-doc-face c-in-sws t) 100 101 (fontified t face font-lock-doc-face c-in-sws t) 101 102 (fontified t c-is-sws t c-in-sws t) 102 103 (fontified t c-is-sws t c-in-sws t)) . 1) (undo-tree-id18 . -102) (undo-tree-id19 . -102) (undo-tree-id20 . -102) (undo-tree-id21 . -102)) nil (26002 61715 10541 42000) 0 nil])
+([nil nil ((#("main" 0 4 (fontified t face font-lock-function-name-face)) . 1913) (undo-tree-id35 . -3) (t 26002 61715 50729 241000)) nil (26002 62420 217240 732000) 0 nil])
+([nil nil ((#("else" 0 1 (fontified nil face font-lock-function-name-face) 1 2 (fontified nil face font-lock-function-name-face) 2 3 (fontified nil face font-lock-function-name-face) 3 4 (fontified nil face font-lock-function-name-face)) . 1927) (undo-tree-id26 . -4) (1923 . 1927) 1927 (1915 . 1927) (#("i" 0 1 (fontified t face font-lock-function-name-face)) . -1915) (undo-tree-id27 . -1) (#("m" 0 1 (fontified t face font-lock-function-name-face)) . -1916) (undo-tree-id28 . -1) (#("e" 0 1 (fontified t face font-lock-function-name-face)) . -1917) (undo-tree-id29 . -1) (#("t" 0 1 (fontified t face font-lock-function-name-face)) . -1918) (undo-tree-id30 . -1) (#("h" 0 1 (fontified t face font-lock-function-name-face)) . -1919) (undo-tree-id31 . -1) (#("i" 0 1 (fontified t face font-lock-function-name-face)) . -1920) (undo-tree-id32 . -1) (#("n" 0 1 (fontified t face font-lock-function-name-face)) . -1921) (undo-tree-id33 . -1) (#("g" 0 1 (fontified t face font-lock-function-name-face)) . -1922) (undo-tree-id34 . -1) 1923 (1913 . 1923)) nil (26002 62420 217217 338000) 0 nil])
+([nil current ((apply -186 1909 3608 undo--wrap-and-run-primitive-undo 1909 3608 ((3604 . 3607) (3600 . 3603) (3596 . 3599) (3587 . 3590) (3583 . 3586) (3575 . 3578) (3571 . 3574) (3546 . 3549) (3541 . 3544) (3483 . 3486) (3479 . 3482) (3435 . 3438) (3431 . 3434) (3349 . 3352) (3345 . 3348) (3266 . 3269) (3262 . 3265) (3160 . 3163) (3156 . 3159) (3104 . 3107) (3100 . 3103) (3003 . 3006) (2998 . 3001) (2943 . 2946) (2939 . 2942) (2921 . 2924) (2916 . 2919) (2870 . 2873) (2865 . 2868) (2842 . 2845) (2837 . 2840) (2735 . 2738) (2731 . 2734) (2682 . 2685) (2678 . 2681) (2632 . 2635) (2628 . 2631) (2582 . 2585) (2578 . 2581) (2512 . 2515) (2508 . 2511) (2442 . 2445) (2438 . 2441) (2397 . 2400) (2393 . 2396) (2308 . 2311) (2303 . 2306) (2233 . 2236) (2229 . 2232) (2221 . 2224) (2217 . 2220) (2201 . 2204) (2197 . 2200) (2148 . 2151) (2144 . 2147) (2074 . 2077) (2070 . 2073) (1966 . 1969) (1962 . 1965) (1938 . 1941) (1934 . 1937) (1909 . 1912))) (t 26002 62420 229459 608000)) nil (26002 63910 580061 958000) 0 nil])
+nil
